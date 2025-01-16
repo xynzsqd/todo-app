@@ -5,18 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
     <title>@yield('page.title', config('app.name'))</title>
 </head>
 
 <body class="h-full">
+
     <div class="wrapper min-h-full flex flex-col">
+
         @include('includes.header')
         <main class="flex flex-auto">
             @yield('main')
         </main>
         @include('includes.footer')
+
     </div>
-    <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
 
 </body>
 
