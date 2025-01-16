@@ -11,12 +11,13 @@
 <body class="h-full">
     <div class="wrapper min-h-full flex flex-col">
         @include('includes.header')
-        <main class="flex-auto">
+        <main class="flex flex-auto">
             @yield('main')
         </main>
         @include('includes.footer')
     </div>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+
 </body>
 
 </html>
