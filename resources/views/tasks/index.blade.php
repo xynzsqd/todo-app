@@ -20,6 +20,7 @@
                     completed
                 </button>
                 <ul class="flex flex-col gap-2">
+
                     @for ($i = 0; $i < 3; $i++)
                         <li>
                             <x-task.card title="title" id="{{ $i }}"></x-task.card>
