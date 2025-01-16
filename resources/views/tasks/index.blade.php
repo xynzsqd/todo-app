@@ -22,18 +22,19 @@
                 <ul class="flex flex-col gap-2">
                     @foreach ($tasks as $task)
                         <li>
-                            <x-task.card title="{{$task->title}}" id="{{ $task->id }}" isActive="{{$task->isActive}}"></x-task.card>
+                            <x-task.card title="{{ $task->title }}" id="{{ $task->id }}"
+                                isActive="{{ $task->isActive }}"></x-task.card>
                         </li>
                     @endforeach
                 </ul>
             </div>
 
             <div class="w-2/3">
-                <x-form.form class="flex gap-3">
+                <x-form.form class="flex gap-3" action="{{ route('task.index') }}" method="GET">
+                    <x-form.input class="flex-1" name="search" placeholder="Search something..."></x-form.input>
                     <x-form.select class="flex-1" name="" id=""
                         class="text-xl font-medium border-2 rounded-lg bg-slate-50 shadow-sm">
                     </x-form.select>
-                    <x-form.input class="flex-1" name="title" placeholder="Search something..."></x-form.input>
                     <x-action.button class="flex-none">Apply</x-action.button>
                 </x-form.form>
             </div>
