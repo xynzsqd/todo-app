@@ -9,7 +9,8 @@ class TaskController extends Controller
 {
     public function index()
     {
-        return view('tasks.index');
+        $tasks = Task::query()->select('id', 'title', 'isCompleted')->get();
+        return view('tasks.index', compact('tasks'));
     }
 
     public function store(Request $request)

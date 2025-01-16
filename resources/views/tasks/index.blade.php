@@ -6,7 +6,7 @@
         <div class="grow flex flex-col justify-center items-center p-20 rounded-xl shadow-2xl">
 
             <div class="w-2/3  mb-14">
-                <x-form.form>
+                <x-form.form action="{{ route('task.index') }}">
                     <div class="flex gap-3">
                         <x-form.input name="title" placeholder="Enter task name" class="flex-1"></x-form.input>
                         <x-action.button class="flex-none bg-neutral-700">Create</x-action.button>
@@ -20,12 +20,11 @@
                     completed
                 </button>
                 <ul class="flex flex-col gap-2">
-
-                    @for ($i = 0; $i < 3; $i++)
+                    @foreach ($tasks as $task)
                         <li>
-                            <x-task.card title="title" id="{{ $i }}"></x-task.card>
+                            <x-task.card title="{{$task->title}}" id="{{ $task->id }}" isActive="{{$task->isActive}}"></x-task.card>
                         </li>
-                    @endfor
+                    @endforeach
                 </ul>
             </div>
 
