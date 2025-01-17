@@ -52,11 +52,12 @@ class TaskController extends Controller
     }
 
 
-    public function update(Request $request, string $id)
+    public function update(Request $request, Task $task)
     {
-        //
+        $task->isCompleted = !$task->isCompleted;
+        $task->save();
+        return 'succes!';
     }
-
     public function delete(string $id)
     {
         //

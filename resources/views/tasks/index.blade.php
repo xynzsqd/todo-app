@@ -15,7 +15,7 @@
             </div>
 
             <div class="w-2/3 relative mb-14">
-                <button
+                <button id="clearBtn"
                     class="absolute -top-10 right-0 font-medium text-lg text-gray-500 hover:text-gray-800 transition-colors duration-200 cursor-pointer">Clear
                     completed
                 </button>
