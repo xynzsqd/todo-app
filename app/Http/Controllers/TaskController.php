@@ -11,7 +11,6 @@ class TaskController extends Controller
     public function index(Request $request)
     {
 
-        // TODO: либо оставить как есть, либо сделать сохранение инпутов через сессию (попробовать хотя бы)
         $validated = $request->validate([
             'search' => ['nullable', 'string'],
             'filter' => ['nullable', 'string', 'in:all,incompleted,completed'],

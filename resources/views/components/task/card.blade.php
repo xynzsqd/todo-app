@@ -3,8 +3,9 @@
 <div class="task flex justify-between items-center py-4 px-6 border rounded-xl shadow-md">
 
     <div class="flex items-center gap-2">
-        <input type="checkbox" id="{{ $id }}" {{$isCompleted ? 'checked' : ''}}
-            class="task-checkbox h-6 w-6 peer rounded-md text-neutral-800 border-2 focus:ring-offset-0" name="isCompleted">
+        <input type="checkbox" id="{{ $id }}" {{ $isCompleted ? 'checked' : '' }}
+            class="task-checkbox h-6 w-6 peer rounded-md text-neutral-800 border-2 focus:ring-offset-0"
+            name="isCompleted">
         <label for="{{ $id }}" class="peer-checked:line-through text-2xl font-medium gap-2 cursor-pointer">
             {{ $title }}
         </label>
