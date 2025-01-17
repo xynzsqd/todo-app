@@ -58,8 +58,13 @@ class TaskController extends Controller
         $task->save();
         return 'succes!';
     }
-    public function delete(string $id)
+    public function delete(Request $request, Task $task = null)
     {
-        //
+        if ($task) {
+            $task->delete();
+        } else {
+            Task::query()->where('isCompleted', true)->delete();
+        }
+        return 'success';
     }
 }

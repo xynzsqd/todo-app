@@ -1,6 +1,6 @@
 @props(['isCompleted'])
 
-<div class="flex justify-between items-center py-4 px-6 border rounded-xl shadow-md">
+<div class="task flex justify-between items-center py-4 px-6 border rounded-xl shadow-md">
 
     <div class="flex items-center gap-2">
         <input type="checkbox" id="{{ $id }}" {{$isCompleted ? 'checked' : ''}}
@@ -10,6 +10,6 @@
         </label>
     </div>
 
-    <x-action.button class="bg-red-700 hover:bg-red-900">Delete</x-action.button>
+    <x-action.button class="delete-button bg-red-700 hover:bg-red-900">Delete</x-action.button>
 
 </div>
