@@ -31,8 +31,8 @@
 
             <div class="w-2/3">
                 <x-form.form class="flex gap-3" action="{{ route('task.index') }}" method="GET">
-                    <x-form.input class="flex-1" name="search" value="{{$validated['search'] ?? null}}" placeholder="Search something..."></x-form.input>
-                    <x-form.select class="flex-1" name="filter" filter="{{$validated['filter'] ?? null}}"
+                    <x-form.input class="flex-1" name="search" value="{{old('search', session('search'))}}" placeholder="Search something..."></x-form.input>
+                    <x-form.select class="flex-1" name="filter" filter="{{old('filter', session('filter'))}}"
                         class="text-xl font-medium border-2 rounded-lg bg-slate-50 shadow-sm">
                     </x-form.select>
                     <x-action.button class="flex-none">Apply</x-action.button>
