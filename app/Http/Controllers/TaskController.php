@@ -4,12 +4,39 @@ namespace App\Http\Controllers;
 
 use App\Models\Task;
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\Builder;
 
 class TaskController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $tasks = Task::query()->select('id', 'title', 'isCompleted')->get();
+
+        // TODO: либо оставить как есть, либо сделать сохранение инпутов через сессию (попробовать хотя бы)
+        $validated = $request->validate([
+            'search' => ['nullable', 'string'],
+            'filter' => ['nullable', 'string', 'in:all,incompleted,completed'],
+        ]);
+
+        session()->put('search', $validated['search']  ?? null);
+        session()->put('filter', $validated['filter']  ?? null);
+
+        $tasks = Task::query()
+            ->when($validated['search'] ?? null, function (Builder $query, $search) {
+                $query->where('title', 'like', "%{$search}%");
+            })
+            ->when($validated['filter'] ?? null, function (Builder $query, $filter) {
+                switch ($filter) {
+                    case 'incompleted':
+                        $query->where('isCompleted', false);
+                        break;
+                    case 'completed':
+                        $query->where('isCompleted', true);
+                        break;
+                }
+            })
+            ->get();
+
+
         return view('tasks.index', compact('tasks'));
     }
 
